@@ -1,0 +1,32 @@
+CREATE OR REPLACE FUNCTION is_prime(n IN NUMBER) RETURN BOOLEAN
+  2  IS
+  3    divisor NUMBER := 2;
+  4  BEGIN
+  5    IF n <= 1 THEN
+  6      RETURN FALSE;
+  7    END IF;
+  8
+  9    WHILE divisor <= SQRT(n) LOOP
+ 10      IF MOD(n, divisor) = 0 THEN
+ 11        RETURN FALSE;
+ 12      END IF;
+ 13      divisor := divisor + 1;
+ 14    END LOOP;
+ 15
+ 16    RETURN TRUE;
+ 17  END;
+ 18  /
+
+Function created.
+
+SQL> DECLARE
+  2    n NUMBER := 17;
+  3  BEGIN
+  4    IF is_prime(n) THEN
+  5      DBMS_OUTPUT.PUT_LINE(n || ' is a prime number.');
+  6    ELSE
+  7      DBMS_OUTPUT.PUT_LINE(n || ' is not a prime number.');
+  8    END IF;
+  9  END;
+ 10  /
+17 is a prime number.
