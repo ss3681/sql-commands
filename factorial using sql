@@ -1,0 +1,24 @@
+CREATE OR REPLACE FUNCTION factorial(n IN NUMBER) RETURN NUMBER
+  2  IS
+  3  BEGIN
+  4    -- base case
+  5    IF n = 0 OR n = 1 THEN
+  6      RETURN 1;
+  7    ELSE
+  8      -- recursive case
+  9      RETURN n * factorial(n - 1);
+ 10    END IF;
+ 11  END;
+ 12  /
+
+Function created.
+
+SQL> DECLARE
+  2    n NUMBER := 5;
+  3    fact NUMBER;
+  4  BEGIN
+  5    fact := factorial(n);
+  6    DBMS_OUTPUT.PUT_LINE('Factorial of ' || n || ' is ' || fact);
+  7  END;
+  8  /
+Factorial of 5 is 120
