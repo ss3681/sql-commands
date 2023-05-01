@@ -1,0 +1,21 @@
+DECLARE
+  2    max_cgpa NUMBER;
+  3  BEGIN
+  4    max_cgpa := get_max_cgpa;
+  5    DBMS_OUTPUT.PUT_LINE('Maximum CGPA: ' || max_cgpa);
+  6  END;
+  7  /
+Maximum CGPA: 9
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE FUNCTION average_of_two_numbers (
+  2      num1 NUMBER,
+  3      num2 NUMBER
+  4  ) RETURN NUMBER IS
+  5      avg_num NUMBER;
+  6  BEGIN
+  7      avg_num := (num1 + num2) / 2;
+  8      RETURN avg_num;
+  9  END;
+ 10  /
