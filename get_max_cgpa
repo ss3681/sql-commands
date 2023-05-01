@@ -1,0 +1,20 @@
+DECLARE
+  2    cse_count NUMBER;
+  3  BEGIN
+  4    cse_count := get_cse_student_count;
+  5    DBMS_OUTPUT.PUT_LINE('Number of students in CSE department: ' || cse_count);
+  6  END;
+  7  /
+Number of students in CSE department: 3
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE FUNCTION get_max_cgpa RETURN NUMBER
+  2  IS
+  3    max_cgpa NUMBER;
+  4  BEGIN
+  5    SELECT MAX(cgpa) INTO max_cgpa FROM Student;
+  6    RETURN max_cgpa;
+  7  END;
+  8  /
+
